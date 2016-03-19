@@ -58,7 +58,7 @@ library(DiagrammeR)
       for(j in 1:nrow(otherplayers)) {
       #  row <- dataFrame[j,]
       #  print(otherplayers[j,])
-        
+        if (otherplayers$BBREFID[j] !="") {
       #Create a new node for the player
         nodevector = append(nodevector,j+otherplayers$TRANS_ID[j])
         shapevector = append(shapevector,"rect")
@@ -68,6 +68,10 @@ library(DiagrammeR)
         if (otherplayers$TTEAM[j]==to_team) {
           fromedges = append(fromedges,j+otherplayers$TRANS_ID[j])
           toedges = append(toedges,  i)
+          fromedges = append(fromedges,i-1)
+          toedges = append(toedges,  j+otherplayers$TRANS_ID[j])
+          arrowsizevector=append(arrowsizevector,.5)
+          edgecolorvector=append(edgecolorvector,"gray")
           arrowsizevector=append(arrowsizevector,.5)
           edgecolorvector=append(edgecolorvector,"gray")
         }  
@@ -82,7 +86,7 @@ library(DiagrammeR)
           arrowsizevector=append(arrowsizevector,.5)
           edgecolorvector=append(edgecolorvector,"gray")
         }
-
+      }
       #End loop of traded players
       }
     }
