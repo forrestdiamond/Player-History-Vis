@@ -10,5 +10,6 @@ We wanted to automate it!
 What it does
 Right now our program will take in a Retrosheet player ID and output an image showing the player's transaction history. Every trade, signing, release- it's all in there.
 
+Use transtree to build a tree, the rshiny files are currently underdevelopment
 
 See: http://devpost.com/software/player-history-vis
